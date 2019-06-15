@@ -1,0 +1,26 @@
+{
+  "development": {
+    "username": "root",
+    "password": "yourRootPassword",
+    "database": "H_E_ME_db",
+    "host": "127.0.0.1",
+    "dialect": "mysql",
+    "operatorsAliases": false
+  },
+  "test": {
+    "username": "root",
+    "password": null,
+    "database": "database_test",
+    "host": "127.0.0.1",
+    "dialect": "mysql",
+    "operatorsAliases": false
+  },
+  "production": {
+    "username": "bbbp4mjhxaccn9i3",
+    "password": "oc4b0he038sbyvo1",
+    "database": "du262ibjn265545r",
+    "host": "u0zbt18wwjva9e0v.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
+    "dialect": "mysql",
+    "operatorsAliases": false
+  }
+}
