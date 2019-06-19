@@ -1,0 +1,13 @@
+.top {
+    padding: 15px;
+    margin-bottom: 40px;
+    display: flex;
+    justify-content: space-between;
+    background: tomato;
+}
+
+.logSign {
+    display: flex;
+    align-items: baseline;
+    list-style-type: none;
+}
