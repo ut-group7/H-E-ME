@@ -7,6 +7,7 @@ import Footer from "./components/Footer";
 import ContentContainer from "./components/ContentContainer";
 
 class App extends React.Component {
+
   render() {
     return(
       <Wrapper>
@@ -14,6 +15,7 @@ class App extends React.Component {
         <ContentContainer>
         <Form />
         <Content />
+
         </ContentContainer>
         <Footer />
       </Wrapper>
