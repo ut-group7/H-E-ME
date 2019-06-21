@@ -1,7 +1,7 @@
 module.exports = function (sequelize, DataTypes) {
   var Aisle = sequelize.define("Aisle", {
     aisle_id: {
-      type: DataTypes.INTERGER,
+      type: DataTypes.INTEGER,
       allowNull: false
     },
     name: {
@@ -26,5 +26,5 @@ module.exports = function (sequelize, DataTypes) {
     });
   };
 
-  return Store;
+  return Aisle;
 };

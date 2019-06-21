@@ -1,7 +1,7 @@
 module.exports = function (sequelize, DataTypes) {
     var Item = sequelize.define("Item", {
       item_id: {
-        type: DataTypes.INTERGER,
+        type: DataTypes.INTEGER,
         allowNull: false
       },
       name: {
