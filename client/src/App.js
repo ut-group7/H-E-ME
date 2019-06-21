@@ -16,7 +16,7 @@ class App extends React.Component {
         <ContentContainer>
         <Form />
         <Content />
-
+        <Button />
         </ContentContainer>
         <Footer />
       </Wrapper>
