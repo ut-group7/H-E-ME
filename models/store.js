@@ -1,7 +1,7 @@
 module.exports = function(sequelize, DataTypes) {
     var Store = sequelize.define("Store", {
       store_id: {
-        type: DataTypes.INTERGER,
+        type: DataTypes.INTEGER,
         allowNull: false
       },
       name: {

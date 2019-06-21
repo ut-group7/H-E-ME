@@ -5,6 +5,7 @@ import Form from "./components/Form";
 import Content from "./components/Content";
 import Footer from "./components/Footer";
 import ContentContainer from "./components/ContentContainer";
+import Button from "./components/button";
 
 class App extends React.Component {
 
