@@ -6,20 +6,15 @@ module.exports = function (sequelize, DataTypes) {
       },
       name: {
         type: DataTypes.STRING,
-        allowNull: false,
-        validate: {
-          len: [1]
-        }
+        allowNull: false
       },
       aisle_id: {
         type: DataTypes.INTEGER,
-        allowNull: false,
-        len: [1]
+        allowNull: false
       },
       name_id: {
         type: DataTypes.INTEGER,
-        allowNull: false,
-        len: [1]
+        allowNull: false
       }
     });
 
