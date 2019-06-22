@@ -7,7 +7,7 @@ import React from 'react';
 
 class Button extends React.Component {
     handleClick() {
-        fetch ('/api/test/whatever')
+        fetch ('/api/whatever')
         .then(function(res){
             return res.json();
         })
