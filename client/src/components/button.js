@@ -9,10 +9,15 @@ class Button extends React.Component {
     handleClick() {
         fetch ('/api/test/whatever')
         .then(function(res){
-            alert('hey you have data ' + res)
-            console.log (res); //literally logging the 'response' object is not receiving the data being passed in the api?
-        }
-            );
+            return res.json();
+        })
+        .then(function(finaldata) {
+            alert('hey you have data ' + finaldata.data)
+            console.log (finaldata);
+        })
+        .catch(function(err) {
+            console.error(err);
+        })
     }
 
     render() {
