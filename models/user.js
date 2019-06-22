@@ -1,23 +1,41 @@
+/* jshint indent: 1 */
+
 module.exports = function(sequelize, DataTypes) {
-    var User = sequelize.define("User", {
-        user_id: {
-        type: DataTypes.INTEGER,
-        allowNull: false
-      },
-        user_name: {
-        type: DataTypes.STRING,
-        allowNull: false
-      },
-        password: {
-        type: DataTypes.STRING,
-        allowNull: false
-      }
-    });
+	const user = sequelize.define('user', {
+		userId: {
+			type: DataTypes.INTEGER(11),
+			allowNull: false,
+			primaryKey: true,
+			autoIncrement: true,
+			field: 'user_id'
+		},
+		username: {
+			type: DataTypes.STRING(30),
+			allowNull: false,
+			field: 'username'
+		},
+		password: {
+			type: DataTypes.STRING(30),
+			allowNull: false,
+			field: 'password'
+		},
+		createdAt: {
+			type: DataTypes.DATE,
+			allowNull: false,
+			field: 'createdAt'
+		},
+		updatedAt: {
+			type: DataTypes.DATE,
+			allowNull: false,
+			field: 'updatedAt'
+		}
+	}, {
+		tableName: 'user'
+  });
+
+  // user.associate = function(models) {
+  //   user.hasMany(models.list);
+  // };
   
-    User.associate = function(models) {
-        User.hasMany(models.List);
-      };
-  
-    return User;
-  };
-  
+  return user;
+};

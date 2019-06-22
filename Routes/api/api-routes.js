@@ -15,9 +15,11 @@ router.get('/submit', function(req, res){
 
 // Get /api/whatever --> api route for testing purposes
 router.get('/whatever', function(req, res){
-    console.log('hit whatever route')
-    var data = "hello dudes";
-    res.json({data: data});
+    db.store.findAll({
+        include: [db.list]
+    }).then(function(store) {
+        res.json(store);
+      });
 });
 
 

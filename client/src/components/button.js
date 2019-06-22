@@ -12,7 +12,7 @@ class Button extends React.Component {
             return res.json();
         })
         .then(function(finaldata) {
-            alert('hey you have data ' + finaldata.data)
+            alert(finaldata[0].name + ", " + finaldata[1].name + ", " + finaldata[2].name + ", " + finaldata[3].name)
             console.log (finaldata);
         })
         .catch(function(err) {
