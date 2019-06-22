@@ -1,35 +1,68 @@
+/* jshint indent: 1 */
+
 module.exports = function(sequelize, DataTypes) {
-    var List = sequelize.define("List", {
-        list_id: {
-        type: DataTypes.INTEGER,
-        allowNull: false
-      },
-        user_id: {
-        type: DataTypes.INTEGER,
-        allowNull: false
-      },
-        store_id: {
-        type: DataTypes.INTEGER,
+	const list = sequelize.define('list', {
+		listId: {
+			type: DataTypes.INTEGER(11),
+			allowNull: false,
+			primaryKey: true,
+			autoIncrement: true,
+			field: 'list_id'
+		},
+		userId: {
+			type: DataTypes.INTEGER(11),
+			allowNull: false,
+			references: {
+				model: 'user',
+				key: 'user_id'
+			},
+			field: 'user_id'
+		},
+		storeId: {
+			type: DataTypes.INTEGER(11),
+			allowNull: true,
+			references: {
+				model: 'store',
+				key: 'store_id'
+			},
+			field: 'store_id'
+		},
+		deleted: {
+			type: DataTypes.INTEGER(4),
+			allowNull: true,
+			defaultValue: '0',
+			field: 'deleted'
+		},
+		createdAt: {
+			type: DataTypes.DATE,
+			allowNull: false,
+			field: 'createdAt'
+		},
+		updatedAt: {
+			type: DataTypes.DATE,
+			allowNull: false,
+			field: 'updatedAt'
+		}
+	}, {
+		tableName: 'list'
+  });
+  
+  list.associate = function (models) {
+    list.belongsTo(models.user, {
+      foreignKey: {
         allowNull: false
       }
     });
-  
-    List.associate = function (models) {
-        List.belongsTo(models.User, {
-          foreignKey: {
-            allowNull: false
-          }
-        });
-      };
-
-      List.associate = function (models) {
-        List.belongsTo(models.Store, {
-          foreignKey: {
-            allowNull: false
-          }
-        });
-      };
-  
-    return List;
   };
-  
+
+  list.associate = function (models) {
+    list.belongsTo(models.store, {
+      foreignKey: {
+        allowNull: false
+      }
+    });
+  };
+
+return list;
+
+};

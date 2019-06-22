@@ -1,15 +1,32 @@
-module.exports = function (sequelize, DataTypes) {
-    var Item_Name = sequelize.define("Item_Name", {
-      item_name_id: {
-        type: DataTypes.INTEGER,
-        allowNull: false
-      },
-      name: {
-        type: DataTypes.STRING,
-        allowNull: false
-      }
-    });
+/* jshint indent: 1 */
+
+module.exports = function(sequelize, DataTypes) {
+	const item_name = sequelize.define('itemName', {
+		itemNameId: {
+			type: DataTypes.INTEGER(11),
+			allowNull: false,
+			primaryKey: true,
+			autoIncrement: true,
+			field: 'item_name_id'
+		},
+		name: {
+			type: DataTypes.STRING(30),
+			allowNull: false,
+			field: 'name'
+		},
+		createdAt: {
+			type: DataTypes.DATE,
+			allowNull: false,
+			field: 'createdAt'
+		},
+		updatedAt: {
+			type: DataTypes.DATE,
+			allowNull: false,
+			field: 'updatedAt'
+		}
+	}, {
+		tableName: 'item_name'
+  });
   
-    return Item_Name;
-  };
-  
+  return item_name;
+};

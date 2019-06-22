@@ -1,27 +1,41 @@
+/* jshint indent: 1 */
+
 module.exports = function(sequelize, DataTypes) {
-    var Store = sequelize.define("Store", {
-      store_id: {
-        type: DataTypes.INTEGER,
-        allowNull: false
-      },
-      name: {
-        type: DataTypes.STRING,
-        allowNull: false,
-        validate: {
-          len: [1]
-        }
-      },
-      address: {
-        type: DataTypes.STRING,
-        allowNull: false,
-        len: [1]
-      }
-    });
+	const store = sequelize.define('store', {
+		storeId: {
+			type: DataTypes.INTEGER(11),
+			allowNull: false,
+			primaryKey: true,
+			autoIncrement: true,
+			field: 'store_id'
+		},
+		name: {
+			type: DataTypes.STRING(30),
+			allowNull: false,
+			field: 'name'
+		},
+		address: {
+			type: DataTypes.STRING(100),
+			allowNull: false,
+			field: 'address'
+		},
+		createdAt: {
+			type: DataTypes.DATE,
+			allowNull: false,
+			field: 'createdAt'
+		},
+		updatedAt: {
+			type: DataTypes.DATE,
+			allowNull: false,
+			field: 'updatedAt'
+		}
+	}, {
+		tableName: 'store'
+  });
   
-    Store.associate = function(models) {
-        Store.hasMany(models.List);
-      };
-  
-    return Store;
+  store.associate = function(models) {
+    store.hasMany(models.list);
   };
-  
+
+  return store;
+};
