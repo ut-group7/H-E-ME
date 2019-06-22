@@ -1,9 +1,13 @@
 .top {
-    padding: 15px;
+    /* padding: 15px;
     margin-bottom: 40px;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-between; */
     background: tomato;
+    grid-area: header;
+    padding: 20px 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
 }
 
 .logSign {

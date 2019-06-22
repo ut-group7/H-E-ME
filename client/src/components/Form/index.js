@@ -8,7 +8,8 @@ class Form extends Component {
     storeValue: "",
     storeName: "",
     itemArr: [],
-    dataArr: []
+    dataArr: [],
+    items: ""
   };
 
   handleChange = event => {
@@ -39,7 +40,22 @@ class Form extends Component {
     alert("this is working" + itemQuery);
     //clearing out shopping list after from has submitted
     // this.clearList();
-  };
+
+      fetch("/api/whatever")
+        // We get the API response and receive data in JSON format...
+        .then(response => response.json())
+        // ...then we update the users state
+        .then(data =>
+          this.setState({
+            items: data,
+            isLoading: false,
+          })
+        )
+        
+        // Catch any errors we hit and update the app
+        .catch(error => this.setState({ error, isLoading: false }));
+        console.log(this.state);
+    };
 
   clearList = () => {
     let {itemArr, dataArr} = this.state;
