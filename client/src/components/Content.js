@@ -2,6 +2,6 @@ import React from "react";
 
 const Content = () => 
 
-    <div className="center">Results from search will go here</div>;
+    <div className="center"></div>;
 
 export default Content;

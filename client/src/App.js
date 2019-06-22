@@ -5,10 +5,9 @@ import Form from "./components/Form";
 import Content from "./components/Content";
 import Footer from "./components/Footer";
 import ContentContainer from "./components/ContentContainer";
-import Button from "./components/button";
 
 class App extends React.Component {
-
+  
   render() {
     return(
       <Wrapper>
@@ -16,7 +15,6 @@ class App extends React.Component {
         <ContentContainer>
         <Form />
         <Content />
-        <Button />
         </ContentContainer>
         <Footer />
       </Wrapper>
