@@ -46,21 +46,21 @@ module.exports = function(sequelize, DataTypes) {
 		tableName: 'item'
   });
   
-  item.associate = function (models) {
-    item.belongsTo(models.aisle, {
-      foreignKey: {
-        allowNull: false
-      }
-    });
-  };
+  // item.associate = function (models) {
+  //   item.belongsTo(models.aisle, {
+  //     foreignKey: {
+  //       allowNull: false
+  //     }
+  //   });
+  // };
 
-  item.associate = function (models) {
-    item.belongsTo(models.item_name, {
-      foreignKey: {
-        allowNull: false
-      }
-    });
-  };
+  // item.associate = function (models) {
+  //   item.belongsTo(models.item_name, {
+  //     foreignKey: {
+  //       allowNull: false
+  //     }
+  //   });
+  // };
   
   return item;
 };

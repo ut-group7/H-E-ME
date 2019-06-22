@@ -33,9 +33,9 @@ module.exports = function(sequelize, DataTypes) {
 		tableName: 'user'
   });
 
-  user.associate = function(models) {
-    user.hasMany(models.list);
-  };
+  // user.associate = function(models) {
+  //   user.hasMany(models.list);
+  // };
   
   return user;
 };

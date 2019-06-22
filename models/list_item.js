@@ -1,7 +1,7 @@
 /* jshint indent: 1 */
 
 module.exports = function(sequelize, DataTypes) {
-	const list_item = sequelize.define('listItem', {
+	const list_item = sequelize.define('list_item', {
 		listItemId: {
 			type: DataTypes.INTEGER(11),
 			allowNull: false,
@@ -47,21 +47,21 @@ module.exports = function(sequelize, DataTypes) {
 		tableName: 'list_item'
   });
   
-  list_item.associate = function (models) {
-    list_item.belongsTo(models.item_name, {
-      foreignKey: {
-        allowNull: false
-      }
-    });
-  };
+  // list_item.associate = function (models) {
+  //   list_item.belongsTo(models.item_name, {
+  //     foreignKey: {
+  //       allowNull: false
+  //     }
+  //   });
+  // };
 
-  list_item.associate = function (models) {
-    list_item.belongsTo(models.list, {
-      foreignKey: {
-        allowNull: false
-      }
-    });
-  };
+  // list_item.associate = function (models) {
+  //   list_item.belongsTo(models.list, {
+  //     foreignKey: {
+  //       allowNull: false
+  //     }
+  //   });
+  // };
 
   return list_item;
 };

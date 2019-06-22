@@ -33,9 +33,13 @@ module.exports = function(sequelize, DataTypes) {
 		tableName: 'store'
   });
   
-  store.associate = function(models) {
-    store.hasMany(models.list);
-  };
+  // store.associate = function(models) {
+  //   store.hasMany(models.list);
+  // };
+
+  // store.associate = function(models) {
+  //   store.hasMany(models.aisle);
+  // };
 
   return store;
 };

@@ -37,13 +37,17 @@ module.exports = function(sequelize, DataTypes) {
 		tableName: 'aisle'
   });
   
-  aisle.associate = function (models) {
-    aisle.belongsTo(models.store, {
-      foreignKey: {
-        allowNull: false
-      }
-    });
-  };
+  // aisle.associate = function (models) {
+  //   aisle.belongsTo(models.store, {
+  //     foreignKey: {
+  //       allowNull: false
+  //     }
+  //   });
+  // };
+
+  // aisle.associate = function(models) {
+  //   aisle.hasMany(models.item);
+  // };
 
   return aisle;
 };

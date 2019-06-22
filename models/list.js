@@ -47,21 +47,25 @@ module.exports = function(sequelize, DataTypes) {
 		tableName: 'list'
   });
   
-  list.associate = function (models) {
-    list.belongsTo(models.user, {
-      foreignKey: {
-        allowNull: false
-      }
-    });
-  };
+  // list.associate = function (models) {
+  //   list.belongsTo(models.user, {
+  //     foreignKey: {
+  //       allowNull: false
+  //     }
+  //   });
+  // };
 
-  list.associate = function (models) {
-    list.belongsTo(models.store, {
-      foreignKey: {
-        allowNull: false
-      }
-    });
-  };
+  // list.associate = function (models) {
+  //   list.belongsTo(models.store, {
+  //     foreignKey: {
+  //       allowNull: false
+  //     }
+  //   });
+  // };
+
+  // list.associate = function(models) {
+  //   list.hasMany(models.list_item);
+  // };
 
 return list;
 
