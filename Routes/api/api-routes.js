@@ -1,22 +1,26 @@
 const express = require('express');
 const router = express.Router();
+var db = require('../../models');
 
 
-//Routes **all routes booked here by default begin with 'api/test'
+//Routes **all routes booked here by default begin with 'api'
 //Any reqeusts should only include an extension to this url if desired
 
-// GET /api/test
-router.get('/', function(req, res){
-    console.log('hit target')
+
+// GET /api/sumbit  --> Our Query to the db for the final item/aisle list goes inside here
+router.get('/submit', function(req, res){
+    console.log('hit submit route')
     res.end();
 });
 
-// Get /api/test/whatever
+// Get /api/whatever --> api route for testing purposes
 router.get('/whatever', function(req, res){
     console.log('hit whatever route')
     var data = "hello dudes";
     res.json({data: data});
 });
+
+
 
 
 module.exports = router;
