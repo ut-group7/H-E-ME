@@ -14,8 +14,8 @@ router.get('/', function(req, res){
 // Get /api/test/whatever
 router.get('/whatever', function(req, res){
     console.log('hit whatever route')
-    data = "hello dudes";
-    res.send(data);
+    var data = "hello dudes";
+    res.json({data: data});
 });
 
 
