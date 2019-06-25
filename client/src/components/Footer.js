@@ -3,7 +3,7 @@ import "./CSS/Footer.css";
 
 const Footer = () => 
     <footer className="bottom">
-    <a href="/api">API</a>
+    <a href="/api/whatever">API</a>
     <p>Copyright 2019, Group7-Project2</p>
     </footer>;
 

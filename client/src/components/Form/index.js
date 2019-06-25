@@ -8,8 +8,17 @@ class Form extends Component {
     storeValue: "",
     storeName: "",
     itemArr: [],
-    dataArr: []
+    dataArr: [],
   };
+
+
+  componentDidMount = () => {
+    fetch("/api/locations")
+    .then(res => res.json())
+    .then(res => this.setState({ returnedData: res }));
+    // .then(res => this.data = res)
+    // .then(res => returnedData.push(res)
+  }
 
   handleChange = event => {
     let {itemArr, dataArr} = this.state;
@@ -22,12 +31,21 @@ class Form extends Component {
     // console.log(dataArr);
   };
 
+  getProducts = (storeId) => {
+   return fetch(`http://localhost:3001/api/aisles/${storeId}`)
+  }
+
   selectStore = event => {
-    this.setState({ storeValue: event.target.value });
-    let index = event.target.selectedIndex;
-    let element = event.target.childNodes[index].getAttribute("data-name");
-    console.log(element);
-    this.setState({storeName: element})
+    const storeId= event.target.value;
+    this.getProducts(storeId)
+    .then(res => res.json())
+    .then((result) => console.log(result));
+    //
+    // this.setState({ storeValue: event.target.value });
+    // let index = event.target.selectedIndex;
+    // let element = event.target.childNodes[index].getAttribute("data-name");
+    // console.log(element);
+    // this.setState({storeName: element})
   };
 
   handleFormSubmit = event => {
@@ -35,8 +53,11 @@ class Form extends Component {
     event.preventDefault();
     //storing selected item ids from user
     let itemQuery = this.state.dataArr;
-
     alert("this is working" + itemQuery);
+    fetch("http://localhost3001/api/whatever")
+    .then(res => res.json())
+    .then(
+    (result) => console.log(result));
     //clearing out shopping list after from has submitted
     // this.clearList();
   };
@@ -50,7 +71,7 @@ class Form extends Component {
   
 
   render() {
-    console.log(this.state)
+    console.log(this.state.returnedData)
     return (
       <div className="center">
         <form className="form" onSubmit={this.handleFormSubmit}>
@@ -64,7 +85,7 @@ class Form extends Component {
           <option value="3" data-name="Round Rock">Round Rock</option>
         </select>
         {/* ITEM */}
-          <p>Please select items from the menu to create your shopping list</p>
+          {/* <p>Please select items from the menu to create your shopping list</p>
           <select onChange={this.handleChange}>
           <option disabled selected value> -- select an option -- </option>
             <option value="A/C Filters" data-id="1">A/C Filters</option>
@@ -234,7 +255,7 @@ class Form extends Component {
             <option value="Vitamins"data-id="2" />
             <option value="Water" data-id="2"/>
             <option value="Wine" data-id="2"/>
-          </select>
+          </select> */}
           <button onClick={this.handleFormSubmit}>Submit Your Shopping List</button>
         </form>
         <button onClick={this.clearList}>Clear your shopping list</button>
@@ -242,6 +263,7 @@ class Form extends Component {
           <ul>
             <li>item: {this.state.itemArr.toString()}</li>
             <li>store: {this.state.storeName}</li>
+            
           </ul>
         </div>
       </div>
