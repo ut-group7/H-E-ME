@@ -3,8 +3,10 @@ const routes = require("./Routes/api/api-routes");
 const app = express();
 const PORT = process.env.PORT || 3001;
 var db = require("./models");
+const cors = require("cors");
 
 // Define middleware here
+app.use(cors());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 

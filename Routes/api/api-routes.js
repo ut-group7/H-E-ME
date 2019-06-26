@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 var db = require('../../models');
+var Op = require("sequelize").Op;
 
 
 //Routes **all routes booked here by default begin with 'api'
@@ -8,10 +9,26 @@ var db = require('../../models');
 
 
 // GET /api/sumbit  --> Our Query to the db for the final item/aisle list goes inside here
-router.get('/submit', function(req, res){
-    console.log('hit submit route')
-    res.end();
+router.get('/submit', (req, res) => {
+    console.log(res)
+    // console.log('hit submit route')
+    // res.end();
 });
+
+router.get('/aisles/:storeId', (req, res) => {
+    db.aisle.findAll({ where: {storeId: req.params.storeId}, raw: true})
+    .then(function(aisle){
+        const aisleIdArr = aisle.map(item => item.id);
+        db.item.findAll({
+            where: {
+                aisleId: {
+                    [Op.in]: aisleIdArr
+                }
+            }
+        })
+        .then(aisleDetail => res.json(aisleDetail));
+    })
+ })
 
 // Get /api/whatever --> api route for testing purposes
 router.get('/whatever', function(req, res){
