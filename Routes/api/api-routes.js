@@ -15,11 +15,35 @@ router.get('/submit', function(req, res){
 
 // Get /api/whatever --> api route for testing purposes
 router.get('/whatever', function(req, res){
-    db.store.findAll({
-        include: [db.list]
-    }).then(function(store) {
-        res.json(store);
+    db.list.findAll({
+        where: {
+          id: '1'
+        },
+        include: [{
+           model: db.list_item, include: [
+               db.item_name
+           ]
+        }]
+      }).then(function(lists) {
+        res.json(lists);
       });
+    });
+
+router.get('/items', function(req, res){
+    db.item_name.findAll({}).then(function(item) {
+        res.json(item);
+      });
+});
+
+router.get('/login/:name', function(req, res){
+
+      db.user.findOne({
+        where: {
+          username: req.params.name
+        }
+      }).then(function(user) {
+        res.json(user);
+      });  
 });
 
 
