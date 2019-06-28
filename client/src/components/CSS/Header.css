@@ -1,9 +1,10 @@
 .top {
     padding: 15px;
-    margin-bottom: 40px;
     display: flex;
     justify-content: space-between;
     background: tomato;
+    border-bottom: 1px solid black;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 .logSign {
@@ -11,3 +12,16 @@
     align-items: baseline;
     list-style-type: none;
 }
+
+a {
+    color: white;
+}
+
+@media only screen and (max-width: 900px) {
+    .top {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+  }
