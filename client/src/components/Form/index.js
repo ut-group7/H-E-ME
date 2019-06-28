@@ -29,7 +29,8 @@ class Form extends Component {
 
 
   getProducts = (storeId) => {
-   return fetch(`http://localhost:3001/api/aisles/${storeId}` || `/api/aisles/${storeId}`)
+    //http://localhost:3001/api/aisles/${storeId} <---for running locally
+   return fetch(`/api/aisles/${storeId}`)
   }
 
   selectStore = event => {
@@ -59,7 +60,7 @@ class Form extends Component {
   saveList = () => {
     const selectedItems = this.state.selectedItems[0];
     console.log(selectedItems);
-      return fetch(`http://localhost:3001/api/list`), {
+      return fetch(`/api/list`), {
       method: "POST",
       body: selectedItems,
       headers: {
@@ -69,7 +70,8 @@ class Form extends Component {
   };
 
   getList = () => {
-    return fetch(`http://localhost:3001/api/list` || `/api/list`)
+    // `http://localhost:3001/api/list` <--- running locally
+    return fetch(`/api/list`)
   };
   
 
