@@ -28,12 +28,12 @@ class Item extends React.Component {
         this.setState({loading: true});
         this.getAisle(aisleId)
         .then(res => res.json())
-        .then(returnedAisle => this.setState({ aisleNumber: returnedAisle}));
+        .then(returnedAisle => this.setState({ aisleNumber: returnedAisle, loading: false}));
     }
 
 
     getAisle = (aisleId) => {
-        return fetch(`http://localhost:3001/api/aisleNums/${aisleId}`)
+        return fetch(`http://localhost:3001/api/aisleNums/${aisleId}` || `https://project2uta2019.herokuapp.com/api/aisleNums/${aisleId}`)
        }
 
     render () {
@@ -49,7 +49,7 @@ class Item extends React.Component {
                    <input type="checkbox" value={aisleId} onChange={this.handleChange} defaultUnchecked />&nbsp;{name} 
                   
                </div>
-               <p>{aisleNumber.name}</p>
+               <p>Aisle: {aisleNumber.name}</p> 
             </div>
         )
     }

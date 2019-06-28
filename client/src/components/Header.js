@@ -4,7 +4,7 @@ import "./CSS/Header.css";
 const Header = () => 
 
     <header className="top">
-        <h1>H-E-ME</h1>
+        <h3>H-E-ME</h3>
         <h3>Helping you navigate the aisles of HEB</h3>
         <nav className="nav">
             <ul className="logSign">
