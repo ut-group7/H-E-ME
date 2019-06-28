@@ -29,7 +29,7 @@ class Form extends Component {
 
 
   getProducts = (storeId) => {
-   return fetch(`http://localhost:3001/api/aisles/${storeId}` || `https://project2uta2019.herokuapp.com/api/aisles/${storeId}`)
+   return fetch(`http://localhost:3001/api/aisles/${storeId}` || `/api/aisles/${storeId}`)
   }
 
   selectStore = event => {
@@ -67,7 +67,7 @@ class Form extends Component {
   };
 
   getList = () => {
-    return fetch(`http://localhost:3001/api/list` || `https://project2uta2019.herokuapp.com/api/list`)
+    return fetch(`http://localhost:3001/api/list` || `/api/list`)
   };
   
 
