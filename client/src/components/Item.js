@@ -20,7 +20,6 @@ class Item extends React.Component {
     // }
 
     handleChange = (e) => {
-        // e.preventDefault();
         const {aisle, addItem} = this.props;
         addItem(aisle);
         const aisleId = aisle.aisleId;
@@ -33,7 +32,8 @@ class Item extends React.Component {
 
 
     getAisle = (aisleId) => {
-        return fetch(`http://localhost:3001/api/aisleNums/${aisleId}` || `/api/aisleNums/${aisleId}`)
+        // you will need to use `http://localhost:3001/api/aisleNums/${aisleId}` if you are running this locally!
+        return fetch(`/api/aisleNums/${aisleId}`)
        }
 
     render () {
