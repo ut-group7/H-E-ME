@@ -63,7 +63,15 @@ router.get('/login/:name', function(req, res){
       });  
 });
 
-
+router.get("/aisleNums/:aisleId", function(req, res){
+    db.aisle.findOne({
+        where: {
+            id: req.params.aisleId
+        }
+    }).then(function(aisleNum){
+        res.json(aisleNum)
+    });
+});
 
 
 module.exports = router;

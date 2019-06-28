@@ -3,14 +3,18 @@
 }
 
 .form input {
-  display: block;
-  margin-top: 5px;
-  margin-bottom: 5px;
-  width: 100%;
+  align-self: center;
 }
 
 .center {
   display: flex;
   flex-direction: column;
  
+}
+
+#scroller {
+  height: 200px;
+  width: 300px;
+  overflow-y: scroll;
+  background-color: white;
 }
