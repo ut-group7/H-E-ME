@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import FormResults from "../FormResults";
 import Item from '../Item';
 
 import "./style.css";
@@ -21,22 +20,13 @@ class Form extends Component {
     fetch("/api/locations")
     .then(res => res.json())
     .then(res => this.setState({ returnedData: res }));
-    // .then(res => this.data = res)
-    // .then(res => returnedData.push(res)
+  
   }
 
+  //the "..."" concactenates the value next to the final value of the array
   addItem = item => this.setState({selectedItems: [...this.state.selectedItems, item]});
 
-  // handleChange = event => {
-  //   let {itemArr, dataArr} = this.state;
-  //   itemArr.push(event.target.value);
-  //   let index = event.target.selectedIndex;
-  //   let element = event.target.childNodes[index].getAttribute('data-id');
-  //   console.log(element);
-  //   dataArr.push(element);
-  //   this.setState({itemArr, dataArr});
-  //   // console.log(dataArr);
-  // };
+
 
   getProducts = (storeId) => {
    return fetch(`http://localhost:3001/api/aisles/${storeId}`)
@@ -48,14 +38,7 @@ class Form extends Component {
     this.getProducts(storeId)
     .then(res => res.json())
     .then(returned => this.setState({aisles: returned, loading: false}));
-    // .then((result) => console.log(result));
-    // .then((result) => consol)
-    //
-    // this.setState({ storeValue: event.target.value });
-    // let index = event.target.selectedIndex;
-    // let element = event.target.childNodes[index].getAttribute("data-name");
-    // console.log(element);
-    // this.setState({storeName: element})
+
   };
 
   renderFormItems = () => (
@@ -68,17 +51,10 @@ class Form extends Component {
    
     
   };
-
-  // clearList = () => {
-  //   let {itemArr, dataArr} = this.state;
-  //   itemArr = [];
-  //   dataArr = [];
-  //   this.setState({itemArr, dataArr});
-  // };
   
 
   render() {
-    console.log(this.state.returnedData)
+    console.log(this.state)
     return (
       <div className="center">
         <form className="form" onSubmit={this.handleFormSubmit}>
@@ -94,14 +70,10 @@ class Form extends Component {
         {this.state.loading ? <p>Loading...</p> : this.renderFormItems()}
           <button onClick={this.handleFormSubmit}>Submit Your Shopping List</button>
         </form>
+
         {this.state.selectedItems.map(item => <p>{JSON.stringify(item)}</p>)}
-        {/* <button onClick={this.clearList}>Clear your shopping list</button> */}
         <div className="results">
-          {/* <ul>
-            <li>item: {this.state.itemArr.toString()}</li>
-            <li>store: {this.state.storeName}</li>
-            
-          </ul> */}
+    
         </div>
       </div>
     );
