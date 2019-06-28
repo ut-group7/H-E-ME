@@ -67,11 +67,13 @@ class Form extends Component {
           <option value="1" data-name="Canyon Ridge">Canyon Ridge</option>
           <option value="3" data-name="Round Rock">Round Rock</option>
         </select>
+        <div id="scroller">
         {this.state.loading ? <p>Loading...</p> : this.renderFormItems()}
+        </div>
           <button onClick={this.handleFormSubmit}>Submit Your Shopping List</button>
         </form>
 
-        {this.state.selectedItems.map(item => <p>{JSON.stringify(item)}</p>)}
+        {/* {this.state.selectedItems.map(item => <p>{JSON.stringify(item)}</p>)} */}
         <div className="results">
     
         </div>
