@@ -54,6 +54,8 @@ class Form extends Component {
    .then(response => console.log(response));    
   };
 
+  // this is not working just yet. its hitting on postman but I have yet to figure out why it will not create a new entry
+  // in the db
   saveList = () => {
     const selectedItems = this.state.selectedItems[0];
     console.log(selectedItems);
