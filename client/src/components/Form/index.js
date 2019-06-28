@@ -24,8 +24,23 @@ class Form extends Component {
   }
 
   //the "..."" concactenates the value next to the final value of the array
-  addItem = item => this.setState({selectedItems: [...this.state.selectedItems, item]});
+  addItem = item => {
+    if(this.state.selectedItems.includes(item)){
+      let index = this.state.selectedItems.indexOf(item);
+      if(index === 0){
+        let updateSItems = this.state.selectedItems.slice(1);
+        this.setState({selectedItems:  updateSItems});
+      }else {
+        let arr1 = this.state.selectedItems.slice(0, index);
+        let arr2 = this.state.selectedItems.slice()
+      }
 
+      //remove it
+    }else {
+      this.setState({selectedItems: [...this.state.selectedItems, item]});
+    }
+    
+  }
 
 
   getProducts = (storeId) => {
