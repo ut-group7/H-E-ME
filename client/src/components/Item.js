@@ -33,7 +33,7 @@ class Item extends React.Component {
 
 
     getAisle = (aisleId) => {
-        return fetch(`http://localhost:3001/api/aisleNums/${aisleId}` || `https://project2uta2019.herokuapp.com/api/aisleNums/${aisleId}`)
+        return fetch(`http://localhost:3001/api/aisleNums/${aisleId}` || `/api/aisleNums/${aisleId}`)
        }
 
     render () {
