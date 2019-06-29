@@ -8,13 +8,6 @@ var Op = require("sequelize").Op;
 //Any reqeusts should only include an extension to this url if desired
 
 
-// GET /api/sumbit  --> Our Query to the db for the final item/aisle list goes inside here
-router.get('/submit', (req, res) => {
-    console.log(res)
-    // console.log('hit submit route')
-    // res.end();
-});
-
 router.get('/aisles/:storeId', (req, res) => {
     db.aisle.findAll({ where: {storeId: req.params.storeId}, raw: true})
     .then(function(aisle){
@@ -72,6 +65,23 @@ router.get("/aisleNums/:aisleId", function(req, res){
         res.json(aisleNum)
     });
 });
+
+router.post("/list", (req, res) => {
+    const itemNameId = req.body.itemNameId;
+    const listId = req.body.listId;
+    console.log(req.body);
+    db.list_item.create({
+        itemNameId: itemNameId,
+        listId: listId
+    }).then(newList =>
+        res.json(newList)
+        )
+    });
+
+router.get("/list", function(req, res){
+    db.list_item.findAll({}).then(list => res.json(list))
+});
+
 
 
 module.exports = router;

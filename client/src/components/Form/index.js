@@ -46,7 +46,8 @@ class Form extends Component {
 
 
   getProducts = (storeId) => {
-   return fetch(`http://localhost:3001/api/aisles/${storeId}`)
+    //http://localhost:3001/api/aisles/${storeId} <---for running locally
+   return fetch(`/api/aisles/${storeId}`)
   }
 
   selectStore = event => {
@@ -65,8 +66,29 @@ class Form extends Component {
   handleFormSubmit = event => {
     //prevent default form behavior
     event.preventDefault();
-   
-    
+    this.saveList();
+    this.getList()
+   .then(res => res.json())
+   .then(response => console.log(response));    
+  };
+
+  // this is not working just yet. its hitting on postman but I have yet to figure out why it will not create a new entry
+  // in the db
+  saveList = () => {
+    const selectedItems = this.state.selectedItems[0];
+    console.log(selectedItems);
+      return fetch(`/api/list`), {
+      method: "POST",
+      body: selectedItems,
+      headers: {
+        "Content-Type": "application/json"
+      }
+    }
+  };
+
+  getList = () => {
+    // `http://localhost:3001/api/list` <--- running locally
+    return fetch(`/api/list`)
   };
   
 
@@ -95,7 +117,6 @@ class Form extends Component {
 
         {/* {this.state.selectedItems.map(item => <p>{JSON.stringify(item)}</p>)} */}
         <div className="results">
-    
         </div>
       </div>
     );

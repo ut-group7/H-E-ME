@@ -20,7 +20,6 @@ class Item extends React.Component {
     // }
 
     handleChange = (e) => {
-        // e.preventDefault();
         const {aisle, addItem} = this.props;
         addItem(aisle);
         const aisleId = aisle.aisleId;
@@ -28,12 +27,13 @@ class Item extends React.Component {
         this.setState({loading: true});
         this.getAisle(aisleId)
         .then(res => res.json())
-        .then(returnedAisle => this.setState({ aisleNumber: returnedAisle}));
+        .then(returnedAisle => this.setState({ aisleNumber: returnedAisle, loading: false}));
     }
 
 
     getAisle = (aisleId) => {
-        return fetch(`http://localhost:3001/api/aisleNums/${aisleId}`)
+        // you will need to use `http://localhost:3001/api/aisleNums/${aisleId}` if you are running this locally!
+        return fetch(`/api/aisleNums/${aisleId}`)
        }
 
     render () {
@@ -49,7 +49,7 @@ class Item extends React.Component {
                    <input type="checkbox" value={aisleId} onChange={this.handleChange} defaultUnchecked />&nbsp;{name} 
                   
                </div>
-               <p>{aisleNumber.name}</p>
+               <p>Aisle: {aisleNumber.name}</p> 
             </div>
         )
     }
