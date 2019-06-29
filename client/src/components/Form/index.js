@@ -32,7 +32,9 @@ class Form extends Component {
         this.setState({selectedItems:  updateSItems});
       }else {
         let arr1 = this.state.selectedItems.slice(0, index);
-        let arr2 = this.state.selectedItems.slice()
+        let arr2 = this.state.selectedItems.slice((index + 1));
+        let updateSItems = arr1.concat(arr2);
+        this.setState({selectedItems: updateSItems});
       }
 
       //remove it
@@ -84,6 +86,9 @@ class Form extends Component {
         </select>
         <div id="scroller">
         {this.state.loading ? <p>Loading...</p> : this.renderFormItems()}
+        </div>
+        <div>
+          {this.state.selectedItems.map(item => <p>{item.name}</p>)}
         </div>
           <button onClick={this.handleFormSubmit}>Submit Your Shopping List</button>
         </form>
