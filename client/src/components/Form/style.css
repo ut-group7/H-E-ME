@@ -19,3 +19,12 @@
   margin: 20px;
   border: 1px solid black;
 }
+
+#user-list {
+  height: 200px;
+  width: 500px;
+  overflow-y: scroll;
+  background-color: white;
+  margin: 20px;
+  border: 1px solid black;
+}

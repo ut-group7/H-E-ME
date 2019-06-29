@@ -109,7 +109,7 @@ class Form extends Component {
         <div id="scroller">
         {this.state.loading ? <p>Loading...</p> : this.renderFormItems()}
         </div>
-        <div>
+        <div id="user-list">
           {this.state.selectedItems.map(item => <p>{item.name}</p>)}
         </div>
           <button onClick={this.handleFormSubmit}>Submit Your Shopping List</button>
