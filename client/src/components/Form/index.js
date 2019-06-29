@@ -24,8 +24,25 @@ class Form extends Component {
   }
 
   //the "..."" concactenates the value next to the final value of the array
-  addItem = item => this.setState({selectedItems: [...this.state.selectedItems, item]});
+  addItem = item => {
+    if(this.state.selectedItems.includes(item)){
+      let index = this.state.selectedItems.indexOf(item);
+      if(index === 0){
+        let updateSItems = this.state.selectedItems.slice(1);
+        this.setState({selectedItems:  updateSItems});
+      }else {
+        let arr1 = this.state.selectedItems.slice(0, index);
+        let arr2 = this.state.selectedItems.slice((index + 1));
+        let updateSItems = arr1.concat(arr2);
+        this.setState({selectedItems: updateSItems});
+      }
 
+      //remove it
+    }else {
+      this.setState({selectedItems: [...this.state.selectedItems, item]});
+    }
+    
+  }
 
 
   getProducts = (storeId) => {
@@ -91,6 +108,9 @@ class Form extends Component {
         </select>
         <div id="scroller">
         {this.state.loading ? <p>Loading...</p> : this.renderFormItems()}
+        </div>
+        <div id="user-list">
+          {this.state.selectedItems.map(item => <p>{item.name}</p>)}
         </div>
           <button onClick={this.handleFormSubmit}>Submit Your Shopping List</button>
         </form>
