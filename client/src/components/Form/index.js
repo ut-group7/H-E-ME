@@ -98,21 +98,23 @@ class Form extends Component {
       <div className="center">
         <form className="form" onSubmit={this.handleFormSubmit}>
         {/* STORE */}
-        <p>Please select a store</p>
-        <select onChange={this.selectStore} required>
-        <option disabled selected value> -- select an option -- </option>
+        <p className="heading">Please select a store</p>
+        <select id="store-select" onChange={this.selectStore} required>
+        <option  disabled selected value> -- select an option -- </option>
           <option value="2" data-name="Mueller" >Mueller</option>
           <option value="4" data-name="Lakeline">Lakeline</option>
           <option value="1" data-name="Canyon Ridge">Canyon Ridge</option>
           <option value="3" data-name="Round Rock">Round Rock</option>
         </select>
+        <div id="main-row">
         <div id="scroller">
         {this.state.loading ? <p>Loading...</p> : this.renderFormItems()}
         </div>
         <div id="user-list">
-          {this.state.selectedItems.map(item => <p>{item.name}</p>)}
+          {this.state.selectedItems.map(item => <p className="user-item">{item.name}</p>)}
         </div>
-          <button onClick={this.handleFormSubmit}>Submit Your Shopping List</button>
+        </div>
+          <button id="submit-button" onClick={this.handleFormSubmit}>Submit Your Shopping List</button>
         </form>
 
         {/* {this.state.selectedItems.map(item => <p>{JSON.stringify(item)}</p>)} */}
