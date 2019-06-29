@@ -46,7 +46,7 @@ class Item extends React.Component {
             </button>
             <p>{aisleNumber.name}</p> */}
             <div style={{display: "inline-flex"}}>
-                   <input type="checkbox" value={aisleId} onChange={this.handleChange} defaultUnchecked />&nbsp;{name} 
+                   <input type="checkbox" value={aisleId} onChange={this.handleChange} defaultUnchecked />&nbsp;{name}
                   
                </div>
                <p>Aisle: {aisleNumber.name}</p> 

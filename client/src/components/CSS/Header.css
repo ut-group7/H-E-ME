@@ -13,8 +13,9 @@
     list-style-type: none;
 }
 
-a {
+a, h3, h2 {
     color: white;
+    font-weight: 900;
 }
 
 @media only screen and (max-width: 900px) {
